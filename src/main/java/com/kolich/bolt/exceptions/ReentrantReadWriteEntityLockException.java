@@ -26,19 +26,19 @@
 
 package com.kolich.bolt.exceptions;
 
-public abstract class ReentrantReadWriteFileLockException extends KolichBoltException {
+public abstract class ReentrantReadWriteEntityLockException extends KolichBoltException {
 	
 	private static final long serialVersionUID = 8806617964632175000L;
 
-	public ReentrantReadWriteFileLockException(String message, Throwable cause) {
+	public ReentrantReadWriteEntityLockException(String message, Throwable cause) {
 		super(message, cause);
 	}
 	
-	public ReentrantReadWriteFileLockException(Throwable cause) {
+	public ReentrantReadWriteEntityLockException(Throwable cause) {
 		super(cause);
 	}
 	
-	public ReentrantReadWriteFileLockException(String message) {
+	public ReentrantReadWriteEntityLockException(String message) {
 		super(message);
 	}
 
