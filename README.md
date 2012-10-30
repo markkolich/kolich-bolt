@@ -2,9 +2,9 @@
 
 *synonym: lock*
 
-A wrapper around Java's <a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html">ReentrantReadWriteLock</a> with graceful wait and cleaner fail support.
+A wrapper around Java's <a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html">ReentrantReadWriteLock</a> with better wait and cleaner fail support.
 
-Wraps a typical <a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html">ReentrantReadWriteLock</a> with a much cleaner usage pattern.  And, lets you define a **success** callback and have it called upon successful execution of an internal transaction (the critical block of code that's protected by the lock).
+Wraps a typical <a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html">ReentrantReadWriteLock</a> with a much cleaner usage pattern.  And, lets you define a **success** callback and have it called upon successful execution of an internal transaction (a critical block that's protected by the lock).
 
 ## Latest Version
 
@@ -42,7 +42,7 @@ val kolichBolt = "com.kolich" % "kolich-bolt" % "0.0.1" % "compile"
 
 ## Usage
 
-Your entity, a class, implements the <a href="https://github.com/markkolich/kolich-bolt/blob/master/src/main/java/com/kolich/bolt/LockableEntity.java">LockableEntity</a> interface.
+Your entity, a class, implements the <a href="https://github.com/markkolich/kolich-bolt/blob/master/src/main/java/com/kolich/bolt/LockableEntity.java">LockableEntity</a> interface as defined by *kolich-bolt*.
 
 ```java
 import com.kolich.bolt.LockableEntity;
@@ -56,17 +56,17 @@ public final class Foobar implements LockableEntity {
   @Override
   public ReadWriteLock getLock() {
     return lock_;
-  }  
+  }
 }
 ```
 
-You wish to use an instance of this entity to protect a critical section of code (defined here as `transaction`) using a <a href="https://github.com/markkolich/kolich-bolt/blob/master/src/main/java/com/kolich/bolt/ReentrantReadWriteEntityLock.java">ReentrantReadWriteEntityLock</a>.
+You wish to use an instance of this entity to protect a critical section of code (defined below as a `transaction`) using a <a href="https://github.com/markkolich/kolich-bolt/blob/master/src/main/java/com/kolich/bolt/ReentrantReadWriteEntityLock.java">ReentrantReadWriteEntityLock</a>.
 
 ```java
 public static final Foobar x = new Foobar();
 ```
 
-Grab a shared read lock on `x`, waiting forever on any threads who have already acquired the write lock.  If the read lock is not available then the current thread becomes disabled for thread scheduling purposes and lies dormant until the lock has been acquired.
+Grab a **shared** read lock on `x`, waiting forever on any threads who have already acquired the write lock.  If the read lock is not available then the current thread becomes disabled for thread scheduling purposes and lies dormant until the lock has been acquired.
 
 ```java
 new ReentrantReadWriteEntityLock<T>(x) {
@@ -79,7 +79,7 @@ new ReentrantReadWriteEntityLock<T>(x) {
 }.read();
 ```
 
-Grab a shared read lock on `x`, fail immediately with a <a href="https://github.com/markkolich/kolich-bolt/blob/master/src/main/java/com/kolich/bolt/exceptions/LockConflictException.java">LockConflictException</a> if write lock already acquired by another thread.
+Grab a **shared** read lock on `x`, fail immediately with a <a href="https://github.com/markkolich/kolich-bolt/blob/master/src/main/java/com/kolich/bolt/exceptions/LockConflictException.java">LockConflictException</a> if the write lock already acquired by another thread.
 
 ```java
 new ReentrantReadWriteEntityLock<T>(x) {
@@ -92,7 +92,9 @@ new ReentrantReadWriteEntityLock<T>(x) {
 }.read(false); // Fail immediately if read lock not available
 ```
 
-Grab an exclusive write lock on `x`, fail immediately with a <a href="https://github.com/markkolich/kolich-bolt/blob/master/src/main/java/com/kolich/bolt/exceptions/LockConflictException.java">LockConflictException</a> if write lock already acquired by another thread.  Call the `success` callback method if and only if the `transaction` method finished cleanly without exception.
+Note that `read()` asks for a **shared** reader lock &mdash; the lock will be granted if and only if there are no threads holding a write lock on `x`.  There very well may be other reader threads.
+
+Grab an **exclusive** write lock on `x`, fail immediately with a <a href="https://github.com/markkolich/kolich-bolt/blob/master/src/main/java/com/kolich/bolt/exceptions/LockConflictException.java">LockConflictException</a> if write or read lock already acquired by another thread.  Call the `success` callback method if and only if the `transaction` method finished cleanly without exception.
 
 ```java
 new ReentrantReadWriteEntityLock<T>(x) {
