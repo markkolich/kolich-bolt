@@ -111,6 +111,8 @@ new ReentrantReadWriteEntityLock<T>(x) {
 }.write(); // Fail immediately if write lock not available
 ```
 
+**NOTE:** The acquired lock is held during execution of the `success` method.  It is only released when the `success` method returns, either in success or failure (throws an exception).
+
 The <a href="https://github.com/markkolich/havalo">Havalo project</a> makes extensive real-world use of this locking mechanism.
 
 ## Building
