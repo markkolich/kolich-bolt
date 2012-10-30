@@ -15,7 +15,7 @@ If you wish to use this artifact, you can easily add it to your existing Maven o
 ```scala
 resolvers += "Kolich repo" at "http://markkolich.github.com/repo"
 
-val kolichSpring = "com.kolich" % "kolich-bolt" % "0.0.1" % "compile"
+val kolichBolt = "com.kolich" % "kolich-bolt" % "0.0.1" % "compile"
 ```
 
 ### Maven
@@ -76,7 +76,7 @@ To create an Eclipse Java project for kolich-bolt, run `eclipse` in SBT.
 
 You'll now have a real Eclipse **.project** file worthy of an Eclipse import.
 
-Note your new **.classpath** file as well -- all source JAR's are fetched and injected into the Eclipse project automatically.
+Note your new **.classpath** file as well &mdash; all source JAR's are fetched and injected into the Eclipse project automatically.
 
 ## Licensing
 
