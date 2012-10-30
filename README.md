@@ -4,7 +4,7 @@
 
 A wrapper around Java's <a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html">ReentrantReadWriteLock</a> with graceful wait and cleaner fail support.
 
-Wraps a typical <a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html">ReentrantReadWriteLock</a> with a much cleaner usage pattern.  And, lets you define a **success** callback and have it executed upon successful execution of an internal transaction (the critical block of code that's protected by the lock).
+Wraps a typical <a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html">ReentrantReadWriteLock</a> with a much cleaner usage pattern.  And, lets you define a **success** callback and have it called upon successful execution of an internal transaction (the critical block of code that's protected by the lock).
 
 ## Latest Version
 
@@ -92,7 +92,7 @@ new ReentrantReadWriteEntityLock<T>(x) {
 }.read(false); // Fail immediately if read lock not available
 ```
 
-Grab an exclusive write lock on `x`, fail immediately with a <a href="https://github.com/markkolich/kolich-bolt/blob/master/src/main/java/com/kolich/bolt/exceptions/LockConflictException.java">LockConflictException</a> if write lock already acquired by another thread.  Execute the `success` method if and only if the `transaction` method finished cleanly without exception.
+Grab an exclusive write lock on `x`, fail immediately with a <a href="https://github.com/markkolich/kolich-bolt/blob/master/src/main/java/com/kolich/bolt/exceptions/LockConflictException.java">LockConflictException</a> if write lock already acquired by another thread.  Call the `success` callback method if and only if the `transaction` method finished cleanly without exception.
 
 ```java
 new ReentrantReadWriteEntityLock<T>(x) {
