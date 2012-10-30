@@ -1,10 +1,20 @@
 # kolich-bolt
 
-A wrapper around Java's <a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html">ReentrantReadWriteLock</a> with graceful wait and cleaner fail immediately support.
+*synonym: lock*
+
+A wrapper around Java's <a href="http://docs.oracle.com/javase/6/docs/api/java/util/concurrent/locks/ReentrantReadWriteLock.html">ReentrantReadWriteLock</a> with graceful wait and cleaner fail support.
+
+Wraps a typical ReentrantReadWriteLock with a much cleaner usage pattern.  And, lets you define a **success** callback and have it executed upon successful execution of an internal transaction (the critical block of code that's protected by the lock).
 
 ## Latest Version
 
 The latest stable version of this library is <a href="http://markkolich.github.com/repo/com/kolich/kolich-bolt/0.0.1">0.0.1</a>.
+
+## Usage
+
+```java
+private static final int dog;
+```
 
 ## Resolvers
 
