@@ -76,7 +76,7 @@ new ReentrantReadWriteEntityLock<T>(x) {
     // Return something type T
     return baz;
   }
-}.read();
+}.read(); // Wait forever
 ```
 
 Grab a **shared** read lock on `x`, fail immediately with a <a href="https://github.com/markkolich/kolich-bolt/blob/master/src/main/java/com/kolich/bolt/exceptions/LockConflictException.java">LockConflictException</a> if the write lock already acquired by another thread.
