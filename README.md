@@ -8,7 +8,7 @@ Wraps a typical <a href="http://docs.oracle.com/javase/6/docs/api/java/util/conc
 
 ## Latest Version
 
-The latest stable version of this library is <a href="http://markkolich.github.com/repo/com/kolich/kolich-bolt/0.0.1">0.0.1</a>.
+The latest stable version of this library is <a href="http://markkolich.github.com/repo/com/kolich/kolich-bolt/0.0.2">0.0.2</a>.
 
 ## Resolvers
 
@@ -19,7 +19,7 @@ If you wish to use this artifact, you can easily add it to your existing Maven o
 ```scala
 resolvers += "Kolich repo" at "http://markkolich.github.com/repo"
 
-val kolichBolt = "com.kolich" % "kolich-bolt" % "0.0.1" % "compile"
+val kolichBolt = "com.kolich" % "kolich-bolt" % "0.0.2" % "compile"
 ```
 
 ### Maven
@@ -35,7 +35,7 @@ val kolichBolt = "com.kolich" % "kolich-bolt" % "0.0.1" % "compile"
 <dependency>
   <groupId>com.kolich</groupId>
   <artifactId>kolich-bolt</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -134,15 +134,15 @@ Run SBT from within kolich-bolt.
     #~> cd kolich-bolt
     #~/kolich-bolt> sbt
     ...
-    kolich-bolt:0.0.1>
+    kolich-bolt:0.0.2>
 
 You will see a `kolich-bolt` SBT prompt once all dependencies are resolved and the project is loaded.
 
 In SBT, run `package` to compile and package the JAR.
 
-    kolich-bolt:0.0.1> package
+    kolich-bolt:0.0.2> package
     [info] Compiling 4 Java sources to ~/kolich-bolt/target/classes...
-    [info] Packaging ~/kolich-bolt/dist/kolich-bolt-0.0.1.jar ...
+    [info] Packaging ~/kolich-bolt/dist/kolich-bolt-0.0.2.jar ...
     [info] Done packaging.
     [success] Total time: 4 s, completed
 
@@ -150,7 +150,7 @@ Note the resulting JAR is placed into the **kolich-bolt/dist** directory.
 
 To create an Eclipse Java project for kolich-bolt, run `eclipse` in SBT.
 
-    kolich-bolt:0.0.1> eclipse
+    kolich-bolt:0.0.2> eclipse
     ...
     [info] Successfully created Eclipse project files for project(s):
     [info] kolich-bolt

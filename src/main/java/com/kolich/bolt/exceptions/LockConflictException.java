@@ -26,7 +26,7 @@
 
 package com.kolich.bolt.exceptions;
 
-public class LockConflictException extends KolichBoltException {
+public final class LockConflictException extends KolichBoltException {
 	
 	private static final long serialVersionUID = -1126224142702883234L;
 
