@@ -121,7 +121,7 @@ The <a href="https://github.com/markkolich/havalo">Havalo project</a> makes exte
 
 This Java library and its dependencies are built and managed using <a href="https://github.com/harrah/xsbt">SBT (the Simple Build Tool)</a> version **0.12.1**.
 
-To clone and build kolich-bolt, you must have <a href="http://www.scala-sbt.org/release/docs/Getting-Started/Setup">SBT **0.12.1** installed and configured on your computer</a>.
+To clone and build kolich-bolt, you must have <a href="http://www.scala-sbt.org/release/docs/Getting-Started/Setup">SBT 0.12.1 installed and configured on your computer</a>.
 
 The kolich-bolt SBT <a href="https://github.com/markkolich/kolich-bolt/blob/master/project/Build.scala">Build.scala</a> file is highly customized to build and package this Java artifact.  It's written to manage all dependencies and versioning.
 
