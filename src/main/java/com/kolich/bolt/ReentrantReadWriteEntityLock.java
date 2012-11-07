@@ -32,14 +32,14 @@ import com.kolich.bolt.exceptions.LockConflictException;
 
 public abstract class ReentrantReadWriteEntityLock<T> {
 			
-	private final LockableEntity fileEntity_;
+	private final LockableEntity entity_;
 	
 	public ReentrantReadWriteEntityLock(LockableEntity fileEntity) {
-		fileEntity_ = fileEntity;
+		entity_ = fileEntity;
 	}
 	
 	public T read(final boolean wait) throws Exception {
-		return lock(fileEntity_.getLock().readLock(), wait);
+		return lock(entity_.getLock().readLock(), wait);
     }
 	
 	public T read() throws Exception {
@@ -47,7 +47,7 @@ public abstract class ReentrantReadWriteEntityLock<T> {
 	}
 	
 	public T write(final boolean wait) throws Exception {
-		return lock(fileEntity_.getLock().writeLock(), wait);
+		return lock(entity_.getLock().writeLock(), wait);
     }
 	
 	public T write() throws Exception {
