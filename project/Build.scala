@@ -110,6 +110,11 @@ object Spring extends Build {
       artifactPath in (Compile, packageBin) ~= { defaultPath =>
         file("dist") / defaultPath.getName
       },
+      // Override the default 'test:package' path used by SBT. Places the
+      // resulting JAR into a more meaningful location.
+      artifactPath in (Test, packageBin) ~= { defaultPath =>
+        file("dist") / "test" / defaultPath.getName
+      },
       libraryDependencies ++= deps,
       retrieveManaged := true) ++
       Seq(EclipseKeys.createSrc := EclipseCreateSrc.Default,
