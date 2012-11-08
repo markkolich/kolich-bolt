@@ -31,7 +31,7 @@ import com.typesafe.sbteclipse.plugin.EclipsePlugin._
 
 object Dependencies {
 
-  private val kolichCommon = "com.kolich" % "kolich-common" % "0.0.3.1" % "compile"
+  private val kolichCommon = "com.kolich" % "kolich-common" % "0.0.3.2" % "compile"
 
   val deps = Seq(kolichCommon)
 
