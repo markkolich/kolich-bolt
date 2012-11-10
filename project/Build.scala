@@ -31,7 +31,7 @@ import com.typesafe.sbteclipse.plugin.EclipsePlugin._
 
 object Dependencies {
 
-  private val kolichCommon = "com.kolich" % "kolich-common" % "0.0.3.2" % "compile"
+  private val kolichCommon = "com.kolich" % "kolich-common" % "0.0.4" % "compile"
 
   val deps = Seq(kolichCommon)
 
@@ -51,7 +51,7 @@ object Spring extends Build {
   import Resolvers._
 
   private val aName = "kolich-bolt"
-  private val aVer = "0.0.2"
+  private val aVer = "0.0.3"
   private val aOrg = "com.kolich"
 
   lazy val bolt: Project = Project(
