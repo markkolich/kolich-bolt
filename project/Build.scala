@@ -31,7 +31,7 @@ import com.typesafe.sbteclipse.plugin.EclipsePlugin._
 
 object Dependencies {
 
-  private val kolichCommon = "com.kolich" % "kolich-common" % "0.0.6" % "compile"
+  private val kolichCommon = "com.kolich" % "kolich-common" % "0.0.9" % "compile"
 
   val deps = Seq(kolichCommon)
 
@@ -45,13 +45,13 @@ object Resolvers {
 
 }
 
-object Spring extends Build {
+object Bolt extends Build {
 
   import Dependencies._
   import Resolvers._
 
   private val aName = "kolich-bolt"
-  private val aVer = "0.0.4"
+  private val aVer = "0.0.5"
   private val aOrg = "com.kolich"
 
   lazy val bolt: Project = Project(
@@ -60,7 +60,7 @@ object Spring extends Build {
     settings = Defaults.defaultSettings ++ Seq(resolvers := depResolvers) ++ Seq(
       version := aVer,
       organization := aOrg,
-      scalaVersion := "2.9.2",
+      scalaVersion := "2.10.1",
       javacOptions ++= Seq("-Xlint", "-g"),
       shellPrompt := { (state: State) => { "%s:%s> ".format(aName, aVer) } },
       // True to export the packaged JAR instead of just the compiled .class files.
