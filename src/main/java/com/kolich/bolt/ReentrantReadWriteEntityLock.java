@@ -34,7 +34,7 @@ public abstract class ReentrantReadWriteEntityLock<T> {
 			
 	private final LockableEntity entity_;
 	
-	public ReentrantReadWriteEntityLock(LockableEntity fileEntity) {
+	public ReentrantReadWriteEntityLock(final LockableEntity fileEntity) {
 		entity_ = fileEntity;
 	}
 	
