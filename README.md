@@ -8,7 +8,7 @@ Wraps a typical <a href="http://docs.oracle.com/javase/6/docs/api/java/util/conc
 
 ## Latest Version
 
-The latest stable version of this library is <a href="http://markkolich.github.com/repo/com/kolich/kolich-bolt/0.0.5">0.0.5</a>.
+The latest stable version of this library is <a href="http://markkolich.github.com/repo/com/kolich/kolich-bolt/0.0.7">0.0.7</a>.
 
 ## Resolvers
 
@@ -19,7 +19,7 @@ If you wish to use this artifact, you can easily add it to your existing Maven o
 ```scala
 resolvers += "Kolich repo" at "http://markkolich.github.com/repo"
 
-val kolichBolt = "com.kolich" % "kolich-bolt" % "0.0.5" % "compile"
+val kolichBolt = "com.kolich" % "kolich-bolt" % "0.0.7" % "compile"
 ```
 
 ### Maven
@@ -35,7 +35,7 @@ val kolichBolt = "com.kolich" % "kolich-bolt" % "0.0.5" % "compile"
 <dependency>
   <groupId>com.kolich</groupId>
   <artifactId>kolich-bolt</artifactId>
-  <version>0.0.5</version>
+  <version>0.0.7</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -134,15 +134,15 @@ Run SBT from within kolich-bolt.
     #~> cd kolich-bolt
     #~/kolich-bolt> sbt
     ...
-    kolich-bolt:0.0.5>
+    kolich-bolt:0.0.7>
 
 You will see a `kolich-bolt` SBT prompt once all dependencies are resolved and the project is loaded.
 
 In SBT, run `package` to compile and package the JAR.
 
-    kolich-bolt:0.0.5> package
+    kolich-bolt:0.0.7> package
     [info] Compiling 4 Java sources to ~/kolich-bolt/target/classes...
-    [info] Packaging ~/kolich-bolt/dist/kolich-bolt-0.0.5.jar ...
+    [info] Packaging ~/kolich-bolt/dist/kolich-bolt-0.0.7.jar ...
     [info] Done packaging.
     [success] Total time: 4 s, completed
 
@@ -150,7 +150,7 @@ Note the resulting JAR is placed into the **kolich-bolt/dist** directory.
 
 To create an Eclipse Java project for kolich-bolt, run `eclipse` in SBT.
 
-    kolich-bolt:0.0.5> eclipse
+    kolich-bolt:0.0.7> eclipse
     ...
     [info] Successfully created Eclipse project files for project(s):
     [info] kolich-bolt
@@ -161,7 +161,7 @@ Note your new **.classpath** file as well &mdash; all source JAR's are fetched a
 
 ## Licensing
 
-Copyright (c) 2012 <a href="http://mark.koli.ch">Mark S. Kolich</a>
+Copyright (c) 2015 <a href="http://mark.koli.ch">Mark S. Kolich</a>
 
 All code in this artifact is freely available for use and redistribution under the <a href="http://opensource.org/comment/991">MIT License</a>.
 
