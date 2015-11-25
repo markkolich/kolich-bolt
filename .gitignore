@@ -7,6 +7,13 @@
 
 .project
 .classpath
-project/target
+.idea
+.idea_modules
+.cache
+*.iml
+*.ipr
+*.iws
+
 target
+dist
 bin

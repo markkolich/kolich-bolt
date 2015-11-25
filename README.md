@@ -8,19 +8,11 @@ Wraps a typical <a href="http://docs.oracle.com/javase/6/docs/api/java/util/conc
 
 ## Latest Version
 
-The latest stable version of this library is <a href="http://markkolich.github.com/repo/com/kolich/kolich-bolt/0.0.8">0.0.8</a>.
+See the <a href="https://github.com/markkolich/kolich-bolt/releases">Releases</a> page for the latest version.
 
 ## Resolvers
 
-If you wish to use this artifact, you can easily add it to your existing Maven or SBT project using <a href="https://github.com/markkolich/markkolich.github.com#marks-maven2-repository">my GitHub hosted Maven2 repository</a>.
-
-### SBT
-
-```scala
-resolvers += "Kolich repo" at "http://markkolich.github.com/repo"
-
-val kolichBolt = "com.kolich" % "kolich-bolt" % "0.0.8" % "compile"
-```
+If you wish to use this artifact, you can easily add it to your existing Maven or Gradle project using <a href="https://github.com/markkolich/markkolich.github.com#marks-maven2-repository">my GitHub hosted Maven2 repository</a>.
 
 ### Maven
 
@@ -35,9 +27,15 @@ val kolichBolt = "com.kolich" % "kolich-bolt" % "0.0.8" % "compile"
 <dependency>
   <groupId>com.kolich</groupId>
   <artifactId>kolich-bolt</artifactId>
-  <version>0.0.8</version>
+  <version>0.1</version>
   <scope>compile</scope>
 </dependency>
+```
+
+### Gradle
+
+```groovy
+compile 'com.kolich:kolich-bolt:0.1'
 ```
 
 ## Usage
@@ -119,45 +117,15 @@ The <a href="https://github.com/markkolich/havalo">Havalo project</a> makes exte
 
 ## Building
 
-This Java library and its dependencies are built and managed using <a href="https://github.com/harrah/xsbt">SBT (the Simple Build Tool)</a> version **0.12.1**.
+Clone or fork the repository.
 
-To clone and build kolich-bolt, you must have <a href="http://www.scala-sbt.org/release/docs/Getting-Started/Setup">SBT 0.12.1 installed and configured on your computer</a>.
+    #~> git clone https://github.com/markkolich/kolich-bolt.git
 
-The kolich-bolt SBT <a href="https://github.com/markkolich/kolich-bolt/blob/master/project/Build.scala">Build.scala</a> file is highly customized to build and package this Java artifact.  It's written to manage all dependencies and versioning.
+To package the `JAR`, run `mvn package`:
 
-To build, clone the repository.
+    mvn package
 
-    #~> git clone git://github.com/markkolich/kolich-bolt.git
-
-Run SBT from within kolich-bolt.
-
-    #~> cd kolich-bolt
-    #~/kolich-bolt> sbt
-    ...
-    kolich-bolt:0.0.8>
-
-You will see a `kolich-bolt` SBT prompt once all dependencies are resolved and the project is loaded.
-
-In SBT, run `package` to compile and package the JAR.
-
-    kolich-bolt:0.0.8> package
-    [info] Compiling 4 Java sources to ~/kolich-bolt/target/classes...
-    [info] Packaging ~/kolich-bolt/dist/kolich-bolt-0.0.8.jar ...
-    [info] Done packaging.
-    [success] Total time: 4 s, completed
-
-Note the resulting JAR is placed into the **kolich-bolt/dist** directory.
-
-To create an Eclipse Java project for kolich-bolt, run `eclipse` in SBT.
-
-    kolich-bolt:0.0.8> eclipse
-    ...
-    [info] Successfully created Eclipse project files for project(s):
-    [info] kolich-bolt
-
-You'll now have a real Eclipse **.project** file worthy of an Eclipse import.
-
-Note your new **.classpath** file as well &mdash; all source JAR's are fetched and injected into the Eclipse project automatically.
+The resulting JAR is placed into the **dist** directory.
 
 ## Licensing
 
